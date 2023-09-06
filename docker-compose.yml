@@ -1,0 +1,22 @@
+version: 'version 3.8'
+services:
+  tomcat :
+    container_name: TomcatContainer
+    image: tomcat
+    ports:
+      - 8080:8080
+    volumes:
+      - ./build/libs:/usr/local/tomcat/webapps
+
+  mysql:
+    container_name: MysqlContainer
+    image: mysql
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: "Cks4257@"
+
+#    environment:
+#      - agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005
+#    command:
+#      - "/bin/bash -c 'catalina.sh run'"
